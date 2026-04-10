@@ -9,7 +9,7 @@ public class Solution {
         if (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             String[] words = line.split("\\s+");
-            TreeMap<String, Integer> map = new TreeMap<>();
+            java.util.HashMap<String, Integer> map = new java.util.HashMap<>();
             
             for (String word : words) {
                 if (!word.isEmpty()) {
@@ -17,7 +17,15 @@ public class Solution {
                 }
             }
             
-            for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            // Sort by frequency (descending) then alphabetically
+            java.util.List<java.util.Map.Entry<String, Integer>> list = new java.util.ArrayList<>(map.entrySet());
+            list.sort((a, b) -> {
+                int freqCompare = b.getValue().compareTo(a.getValue());
+                if (freqCompare != 0) return freqCompare;
+                return a.getKey().compareTo(b.getKey());
+            });
+            
+            for (java.util.Map.Entry<String, Integer> entry : list) {
                 System.out.print(entry.getKey() + ": " + entry.getValue() + " ");
             }
             System.out.println();
