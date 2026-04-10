@@ -1,6 +1,6 @@
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
+import java.util.Map;
 
 public class Solution {
     public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class Solution {
         if (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             String[] words = line.split("\\s+");
-            java.util.TreeMap<String, Integer> map = new java.util.TreeMap<>();
+            TreeMap<String, Integer> map = new TreeMap<>();
             
             for (String word : words) {
                 if (!word.isEmpty()) {
@@ -18,8 +18,9 @@ public class Solution {
             }
             
             for (Map.Entry<String, Integer> entry : map.entrySet()) {
-                System.out.println(entry.getKey() + ": " + entry.getValue());
+                System.out.print(entry.getKey() + ": " + entry.getValue() + " ");
             }
+            System.out.println();
         }
         scanner.close();
     }
