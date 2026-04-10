@@ -9,7 +9,7 @@ public class Solution {
         if (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             String[] words = line.split("\\s+");
-            HashMap<String, Integer> map = new HashMap<>();
+            java.util.TreeMap<String, Integer> map = new java.util.TreeMap<>();
             
             for (String word : words) {
                 if (!word.isEmpty()) {
