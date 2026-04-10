@@ -1,21 +1,25 @@
-import java.util.Scanner;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Solution {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Map<String, Integer> freqMap = new LinkedHashMap<>();
-        
-        while (scanner.hasNext()) {
-            String word = scanner.next();
-            freqMap.put(word, freqMap.getOrDefault(word, 0) + 1);
+        Scanner sc = new Scanner(System.in);
+
+        String line = sc.nextLine().trim();
+        String[] words = line.split("\\s+");
+
+        TreeMap<String, Integer> map = new TreeMap<>();
+
+        for (String word : words) {
+            map.put(word, map.getOrDefault(word, 0) + 1);
         }
-        
-        for (Map.Entry<String, Integer> entry : freqMap.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
+
+        StringBuilder sb = new StringBuilder();
+
+        for (String key : map.keySet()) {
+            sb.append(key).append(": ").append(map.get(key)).append(" ");
         }
-        
-        scanner.close();
+
+        // Remove trailing space
+        System.out.print(sb.toString().trim());
     }
 }
